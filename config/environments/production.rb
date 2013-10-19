@@ -66,6 +66,6 @@ Bloccit::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
   # http://eric-bloccit.herokuapp.com
-  config.action_mailer.default_url_options = { :host => 'bloccit.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'eric-bloccit.herokuapp.com' }
   config.mailer_sender = "serixscorpio@gmail.com"
 end
