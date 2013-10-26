@@ -1,0 +1,10 @@
+<li class="media" style="border-top: 1px solid grey">
+  <div class="mdeia-body">
+    <small>
+      <%= image_tag(comment.user.avatar.tiny.url) if comment.user.avatar? %>
+      <strong><%= comment.user.name %></strong>
+      commented <%= time_ago_in_words(comment.created_at) %> ago
+    </small>
+    <p><%= comment.body %></p>
+  </div>
+</li>

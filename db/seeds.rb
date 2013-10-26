@@ -18,21 +18,25 @@ rand(10..15).times do
     password_confirmation: password)
   u.skip_confirmation!
   u.save
+end
 
+User.all.each do |u|
   rand(80..100).times do
     topic = topics.first # getting the first topic here
     p = u.posts.create(
       topic: topic,
       title: Faker::Lorem.words(rand(1..10)).join(" "),
       body: Faker::Lorem.paragraphs(rand(1..4)).join("\n"))
-    # set the created_at to a time within the past year
-    p.update_attribute(:created_at, Time.now - rand(600..31536000))
+    post_creation_time = Time.now - rand(600..31536000) # set created_at to a time within the past year
+    p.update_attribute(:created_at, post_creation_time)
     
     topics.rotate! # add this line to move the first topic to the last, so that posts get assigned to different topics.
 
     rand(3..7).times do
-      p.comments.create(
+      c = p.comments.create(
+        user: User.order("RANDOM()").first, # randomly select a user which the comment belongs to
         body: Faker::Lorem.paragraphs(rand(1..2)).join("\n"))
+      c.update_attribute(:created_at, [post_creation_time + rand(60..31536000), Time.now].min) # set created_at to within one year since the post creation time
     end
   end
 end

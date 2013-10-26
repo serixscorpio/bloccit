@@ -1,0 +1,10 @@
+<% if form_input.errors.any? %>
+  <div class="alert alert-block">
+    <h4>There are <%= pluralize(form_input.errors.count, "error") %>.</h4>
+    <ul>
+      <% form_input.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
