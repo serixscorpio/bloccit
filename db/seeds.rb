@@ -29,6 +29,7 @@ User.all.each do |u|
       body: Faker::Lorem.paragraphs(rand(1..4)).join("\n"))
     post_creation_time = Time.now - rand(600..31536000) # set created_at to a time within the past year
     p.update_attribute(:created_at, post_creation_time)
+    p.update_rank
     
     topics.rotate! # add this line to move the first topic to the last, so that posts get assigned to different topics.
 

@@ -74,6 +74,8 @@ GEM
       ruby-hmac
       unicode (~> 0.4.4)
     formatador (0.2.4)
+    haml (4.0.3)
+      tilt
     hashie (2.0.5)
     hike (1.2.3)
     httpauth (0.2.0)
@@ -183,6 +185,7 @@ DEPENDENCIES
   faker
   figaro
   fog
+  haml
   jquery-rails
   mini_magick
   newrelic_rpm
