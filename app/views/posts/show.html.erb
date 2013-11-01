@@ -33,5 +33,8 @@
         <%= pluralize(@post.down_votes, 'down vote') %>
       </small>
     </div>
+    <% if can? :create, Favorite %>
+      <%= render partial: 'favorites/favorite', locals: { topic: @topic, post: @post } %>
+    <% end %>
   </div>
 </div>

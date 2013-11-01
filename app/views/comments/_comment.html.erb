@@ -1,13 +1,15 @@
 <li class="media" style="border-top: 1px solid grey">
-  <div class="mdeia-body">
-    <small>
-      <%= image_tag(comment.user.avatar.tiny.url) if comment.user.avatar? %>
-      <strong><%= comment.user.name %></strong>
-      commented <%= time_ago_in_words(comment.created_at) %> ago 
-      <% if can? :destroy, comment %>
-        | <%= link_to "Delete", [@topic, @post, comment], method: :delete %>
-      <% end %>
-    </small>
-    <p><%= comment.body %></p>
-  </div>
+  <%= content_tag :div, id: "comment-#{comment.id}" do %>
+    <div class="mdeia-body">
+      <small>
+        <%= image_tag(comment.user.avatar.tiny.url) if comment.user.avatar? %>
+        <strong><%= comment.user.name %></strong>
+        commented <%= time_ago_in_words(comment.created_at) %> ago 
+        <% if can? :destroy, comment %>
+          | <%= link_to "Delete", [@topic, @post, comment], method: :delete %>
+        <% end %>
+      </small>
+      <p><%= comment.body %></p>
+    </div>
+  <% end %>
 </li>
