@@ -1,0 +1,8 @@
+div class="row"
+  div class="span8"
+    h1 Popular
+    p class="lead" Active posts this week
+    = render partial: 'posts/post', collection: @posts
+    = will_paginate @posts
+  div class="span4"
+

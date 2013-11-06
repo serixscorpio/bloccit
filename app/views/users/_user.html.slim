@@ -1,0 +1,10 @@
+div class="media"
+  = link_to user, class: "pull-left"
+    = image_tag(user.avatar.profile.url) if user.avatar?
+  div class="media-body"
+    h4 class="media-heading"
+      = link_to user.name, user
+    small
+      = pluralize(user.posts_count, 'post')
+      ' ,
+      = pluralize(user.comments_count, 'comment')

@@ -10,7 +10,7 @@
     <p><%= image_tag(@post.image.url) if @post.image? %></p>
     <%= markdown @post.body %>
     <ul class="media-list">
-      <%= render @post.comments %>
+      <%= render partial: 'comments/comment', collection: @post.comments %>
     </ul>
     <% if can? :create, @comment %>
       <%= render "comments/form", locals = { topic: @topic, post: @post, comment: @comment } %>

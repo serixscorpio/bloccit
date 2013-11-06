@@ -1,0 +1,7 @@
+div class="row"
+  div class="span8"
+    h1 Popular Users
+    p class="lead" Most active users
+    = render partial: 'users/user', collection: @users
+    = will_paginate @users
+  div class="span4"
