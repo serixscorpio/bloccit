@@ -13,7 +13,12 @@
       <%= render partial: 'comments/comment', collection: @post.comments %>
     </ul>
     <% if can? :create, @comment %>
-      <%= render "comments/form", locals = { topic: @topic, post: @post, comment: @comment } %>
+      <hr/>
+      <a href="#" class="js-show-hide" data-selector="js-new-comment">Add Comment</a>
+      <br/>
+      <div class="js-new-comment hide">
+        <%= render "comments/form", locals = { topic: @topic, post: @post, comment: @comment } %>
+      </div>
     <% else %>
       <p>Please log in to post comments</p>
     <% end %>
