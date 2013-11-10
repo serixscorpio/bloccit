@@ -1,11 +1,13 @@
-<%= form_for [topic, post, comment], html: { class: 'form-horizontal' } do |f| %>
-  <%= render 'shared/form_error', locals = { form_input: comment } %>
-  <%= control_group_tag(comment.errors[:body]) do %>
-    <%= f.text_area :body, rows: 3, class: 'input-block-level', placeholder: 'input your comment here...' %>
-  <% end %>
-  <div class="control-group">
-    <div class="controls">
-      <%= f.submit "Post Comment", class: 'btn pull-right' %>
+<div class="js-new-comment hide">
+  <%= form_for [topic, post, comment], remote: true, html: { class: 'form-horizontal' } do |f| %>
+    <%= render 'shared/form_error', locals = { form_input: comment } %>
+    <%= control_group_tag(comment.errors[:body]) do %>
+      <%= f.text_area :body, rows: 3, class: 'input-block-level', placeholder: 'input your comment here...' %>
+    <% end %>
+    <div class="control-group">
+      <div class="controls">
+        <%= f.submit "Post Comment", class: 'btn pull-right' %>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>

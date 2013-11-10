@@ -11,7 +11,7 @@
     <%= markdown @post.body %>
     <hr/>
     <h2 class='js-comments-count'><%= @post.comments.count %> Comments</h2>
-    <ul class="media-list">
+    <ul class="media-list js-comments">
       <%= render partial: 'comments/comment', collection: @post.comments %>
     </ul>
     <% if can? :create, @comment %>
